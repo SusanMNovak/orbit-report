@@ -17,14 +17,14 @@ export class AppComponent {
 
     let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
  
-    window.fetch(satellitesUrl).then((response)  {
-       response.json().then((data)  {
+    window.fetch(satellitesUrl).then((response)  =>{
+       response.json().then((data) => {
  
           let fetchedSatellites : Satellite[] = data.satellites;
 
           fetchedSatellites
-            .map((s : Satellite) {return new Satellite(s.name, s.type, s.launchDate, s.orbitType, s.operational)})
-            .forEach((s : Satellite) this.sourceList.push(s))
+            .map((s : Satellite) => {return new Satellite(s.name, s.type, s.launchDate, s.orbitType, s.operational)})
+            .forEach((s : Satellite) => this.sourceList.push(s))
 
           // make a copy of the sourceList to be displayed to user
           this.displayList = this.sourceList.slice(0);
